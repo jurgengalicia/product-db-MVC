@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MVC.Models.mvcProductModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br /><br />
+
+<p>
+    <a href="@Url.Action("Add","Product")" class="btn btn-default"> Add Product</a>
+    <a href="@Url.Action("Search","Product")" class="btn btn-default"> View Products</a>
+</p>

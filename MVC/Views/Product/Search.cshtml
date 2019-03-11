@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC.Models.Product>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<br><br>
+<h1>Search database</h1>
+<div class="form-body">
+    @using (Html.BeginForm("Search", "Product", FormMethod.Get))
+    {
+        @Html.TextBox("titleLike")<input type="submit" value="Search"/>
+    }
+</div>
+
+<table class="table table-striped">
+    <thread>
+        <tr>
+            <th>Id</th>
+            <th> Product Title</th>
+        </tr>
+    </thread>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4" style="color:red">
+                    No matching product
+                </td>
+            </tr>
+
+        }
+
+        else
+        {
+            foreach (var prod in Model)
+            {
+            <tr>
+                <td>@prod.Id</td>
+                <td>@prod.Title</td>
+            </tr>
+            }
+        }
+
+    </tbody>
+
+
+</table>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
